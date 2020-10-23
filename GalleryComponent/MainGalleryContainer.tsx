@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Alert,
   StyleSheet,
   View,
   TouchableOpacity,
@@ -9,50 +8,17 @@ import {
 } from 'react-native';
 import metrics from '../Utils/Metrics';
 import ImageBox from './ImageBox';
-import ImagePicker from 'react-native-image-picker';
 import Icon from 'react-native-vector-icons/Ionicons';
-import uuidv4 from '../Utils/UUID';
+import useImage from '../hooks/useImage';
 
 interface MainGalleryContainerProps {}
 
-interface ImageProps {
-  id: string;
-  image: object;
-}
+
 
 const MainGalleryContainer: React.FC<MainGalleryContainerProps> = () => {
-
+  const [images,handleRemovePhoto,selectImage] = useImage();
   const [boxes] = React.useState([1, 2, 3, 4, 5]);
-  const [images, setImages] = React.useState<Array<ImageProps>>([]);
-
-  const selectImage = () => {
-    ImagePicker.showImagePicker((response) => {
-      if (response.didCancel) {
-        console.log('User cancelled image picker');
-      } else if (response.error) {
-        console.log('ImagePicker Error: ', response.error);
-      } else if (response.customButton) {
-        console.log('User tapped custom button: ', response.customButton);
-      } else {
-        const image = {uri: response.uri};
-        if (images.length >= 5) {
-          Alert.alert('', "You can't select more than 5 photos");
-        } else {
-          setImages((previousImages) => [
-            ...previousImages,
-            {
-              id: uuidv4(),
-              image,
-            },
-          ]);
-        }
-      }
-    });
-  };
-
-  const handleRemovePhoto = (id: string) => {
-    setImages(images.filter((photo) => photo.id !== id));
-  };
+  
 
   return (
     <View
