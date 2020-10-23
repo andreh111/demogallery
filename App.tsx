@@ -13,6 +13,7 @@ import {
   SafeAreaView,
   View
 } from 'react-native';
+import CarouselContainer from './CarouselComponent/CarouselContainer';
 import MainGalleryContainer from './GalleryComponent/MainGalleryContainer';
 import metrics from './Utils/Metrics'
 
@@ -20,7 +21,7 @@ const App = () => {
   return (
     <SafeAreaView style={{flex:1}}>
       <View style={{flex:1,justifyContent:'flex-start',top: metrics.vh(5)}}>
-        <MainGalleryContainer />
+        <CarouselContainer />
       </View>
       
     </SafeAreaView>
