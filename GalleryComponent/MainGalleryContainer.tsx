@@ -1,8 +1,8 @@
 import React from 'react';
-import {Alert, View} from 'react-native';
-import ImageBox from './ImageBoxContainer';
+import {View} from 'react-native';
 import useImage from '../hooks/useImage';
 import PickImageCard from './PickImageCard';
+import ImageBoxContainer from './ImageBoxContainer';
 
 interface MainGalleryContainerProps {}
 
@@ -16,7 +16,7 @@ const MainGalleryContainer: React.FC<MainGalleryContainerProps> = () => {
       <PickImageCard onPickImage={()=>selectImage()}/>
       {imageItems.map((image, index) => {
         return (
-          <ImageBox
+          <ImageBoxContainer
             key={index}
             image={images[index] ? images[index].image: null}
             onRemovePhoto={()=>handleRemovePhoto(images[index].id)}

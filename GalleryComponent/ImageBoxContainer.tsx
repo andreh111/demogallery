@@ -14,7 +14,7 @@ interface ImageBoxProps {
   onRemovePhoto: Function;
 }
 
-const ImageBox: React.FC<ImageBoxProps> = ({
+const ImageBoxContainer: React.FC<ImageBoxProps> = ({
   image,
   onRemovePhoto
 }) => {
@@ -39,4 +39,4 @@ const ImageBox: React.FC<ImageBoxProps> = ({
   );
 };
 
-export default ImageBox;
+export default ImageBoxContainer;
