@@ -10,25 +10,19 @@
 
 import React from 'react';
 import {
-  SafeAreaView,
-  View
+    SafeAreaView,
+    View
 } from 'react-native';
 import CarouselContainer from './CarouselComponent/CarouselContainer';
-import MainGalleryContainer from './GalleryComponent/MainGalleryContainer';
-import metrics from './Utils/Metrics'
 
 const App = () => {
-  return (
-    <SafeAreaView style={{flex:1}}>
-      <View style={{flex:1,justifyContent:'flex-start',top: metrics.vh(5)}}>
-        <CarouselContainer />
-      </View>
-      
-    </SafeAreaView>
-    
-  );
-};
+    return (
+        <SafeAreaView style={{flex: 1}}>
+            <CarouselContainer/>
+        </SafeAreaView>
 
+    );
+};
 
 
 export default App;

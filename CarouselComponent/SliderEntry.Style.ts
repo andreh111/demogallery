@@ -1,9 +1,9 @@
-import { StyleSheet, Dimensions, Platform } from 'react-native';
+import {StyleSheet, Dimensions, Platform} from 'react-native';
 import Metrics from '../Utils/Metrics';
 
 
 const IS_IOS = Platform.OS === 'ios';
-const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
+const {width: viewportWidth, height: viewportHeight} = Dimensions.get('window');
 
 function wp(percentage: number) {
     const value = (percentage * viewportWidth) / 100;
@@ -25,9 +25,10 @@ const entryBorderRadius = 8;
 export default StyleSheet.create({
     slideInnerContainer: {
         width: itemWidth,
-        height: slideHeight,
+        height: Metrics.vh(50),
         paddingHorizontal: itemHorizontalMargin,
-        paddingBottom: 18 // needed for shadow
+        paddingBottom: 18, // needed for shadow
+        // backgroundColor:'red'
     },
     shadow: {
         position: 'absolute',
@@ -37,7 +38,7 @@ export default StyleSheet.create({
         bottom: 18,
         shadowColor: 'black',
         shadowOpacity: 0.25,
-        shadowOffset: { width: 0, height: 10 },
+        shadowOffset: {width: 0, height: 10},
         shadowRadius: 10,
         borderRadius: entryBorderRadius
     },
@@ -103,13 +104,13 @@ export default StyleSheet.create({
     },
     container: {
         position: 'relative'
-      },
-      fixed: {
+    },
+    fixed: {
         position: 'absolute',
         top: 0,
         left: 0,
         right: 0,
         bottom: 0,
-      }
+    }
 
 });

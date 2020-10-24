@@ -1,0 +1,63 @@
+{title.length > 100 && !this.state.showMore ? (
+          <View
+            style={{
+              top: Metrics.vh(40),
+              left: Metrics.vw(4),
+            }}>
+            <Text
+              style={{
+                color: '#fff',
+                fontSize: 20,
+                fontWeight: 'bold',
+              }}>
+              {title.substring(0, 100) + '...'}
+            </Text>
+            <TouchableOpacity
+              onPress={() => {
+                this.setState({
+                  showMore: !this.state.showMore,
+                });
+              }}>
+              <Text
+                style={{
+                  color: '#fff',
+                  fontSize: 20,
+                  textDecorationLine: 'underline',
+                  fontWeight: 'bold',
+                }}>
+                Show More
+              </Text>
+            </TouchableOpacity>
+          </View>
+        ) : (
+          <View
+            style={{
+              top: Metrics.vh(30),
+              left: Metrics.vw(2),
+            }}>
+            <Text
+              style={{
+                color: '#fff',
+                fontSize: 20,
+                fontWeight: 'bold',
+              }}>
+              {title}
+            </Text>
+            {title.length > 100 && this.state.showMore && <TouchableOpacity
+              onPress={() => {
+                this.setState({
+                  showMore: !this.state.showMore,
+                });
+              }}>
+              <Text
+                style={{
+                  color: '#fff',
+                  fontSize: 20,
+                  textDecorationLine: 'underline',
+                  fontWeight: 'bold',
+                }}>
+                Show Less
+              </Text>
+            </TouchableOpacity>}
+          </View>
+        )}
